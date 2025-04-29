@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beth's Fruit Shop</title>
+  <link rel="stylesheet" href="style.css"> <!-- Remove this if you're putting CSS inside <style> -->
+  
+  <!-- If you're writing CSS here, wrap it inside <style> tags -->
+  
+</head>
+
+<body>
+  <header>
+    <div class="logo">Beth's Fruit Shop</div>
+    <nav>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="product/product.html">Products</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Beth's Fresh Fruit Shop</h1>
+    <p>Freshness Delivered Daily!</p>
+    <a href="https://wa.me/254726933338" class="cta-button" target="_blank">Order Now on WhatsApp</a>
+
+    
+  </section>
+
+  <section class="products">
+    <h2>Our Fruits</h2>
+
+
+    
+    <div class="product-list">
+      <div class="product-card">
+        <img src="../Image/mango.jpg" alt="Mango">
+        <div class="product-info">
+          <h3>Mango</h3>
+          <p>Sweet and juicy tropical fruit</p>
+          <div class="price-button">ksh 50</div>
+        </div>
+      </div>
+  
+      <!-- Fruit 2 -->
+      <div class="product-card">
+        <img src="../Image/banana.jpg" alt="Banana">
+        <div class="product-info">
+          <h3>Banana</h3>
+          <p>Rich in potassium and energy</p>
+          <div class="price-button">ksh 10 each</div>
+        </div>
+      </div>
+    <!-- Fruit 3-->
+    <div class="product-card">
+      <img src="../Image/pineapple.jpg" alt="Banana">
+      <div class="product-info">
+        <h3>pineapple</h3>
+        <p>Tropical, juicy, and tangy fruit</p>
+        <div class="price-button">ksh 150 each</div>
+      </div>
+    </div>
+
+      
+    <a href="product/product.html" class="view-more-button">View More Products</a>
+  
+                     
+
+    </div>
+    
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Telefon: +254729241566</p>
+    <p>Whatsapp: <a href="https://wa.me/254726933338">Chat with Us</a></p>
+    <p>[Your shop location pending...]</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Beth's Fruit Shop. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
