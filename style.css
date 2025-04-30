@@ -1,7 +1,9 @@
+
 /* General Styles */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  
+  font-family: Arial, Helvetica, sans-serif
 }
 
 /* Header Styles */
@@ -112,6 +114,41 @@ nav {
   border-radius: 5px;
   display: inline-block;
 }
+#basket-deals {
+  text-align: center;
+  padding: 20px;
+}
+
+.basket-option {
+  margin: 20px auto;
+  max-width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: block;
+}
+
+.basket-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+.order-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #2d7c36;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.order-button:hover {
+  background-color: #25642b;
+}
+
 
 /* Products Section */
 .products {

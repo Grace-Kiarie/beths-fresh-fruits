@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Fresh Produce</title>
+  <link rel="stylesheet" href="order.css">
+  </head>
+<body>
+  <form id="orderForm">
+    <h2>🛒 Place Your Order</h2>
+
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" required>
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" id="phoneNumber" required>
+
+    <label for="location">Delivery Location:</label>
+    <select id="location" required>
+      <option value="">-- Select Location --</option>
+      <option value="Gachie">Gachie</option>
+      <option value="Kihara">Kihara</option>
+      <option value="Mwemuto">Mwemuto</option>
+      <option value="Gathega">Gathega</option>
+      <option value="River">River</option>
+      <option value="Nyari">Nyari</option>
+      <option value="ABC Route">ABC Route</option>
+      <option value="Commission Area">Commission Area</option>
+      <option value="CBD/Nairobi Central">CBD/Nairobi Central</option>
+      <option value="Westlands">Westlands</option>
+      <option value="Kasarani">Kasarani</option>
+      <option value="Embakasi">Embakasi</option>
+      <option value="Donholm/Umoja">Donholm/Umoja</option>
+    
+    </select>
+
+    <details>
+      <summary>🍎 Fruits</summary>
+      <div class="item-group">
+        <label><input type="checkbox" value="Bananas"> Bananas</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Apples"> Apples</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Oranges"> Oranges</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="melon"> melon</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="sweet melon"> sweet melon</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="pinapple"> pinapple</label>
+        <input type="number" min="1" placeholder="Qty">
+      
+        <label><input type="checkbox" value="pawpaw"> pawpaw</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="avocado"> avocado</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="thorn melon"> thorn melon</label>
+        <input type="number" min="1" placeholder="Qty">
+      
+      </div>
+    </details>
+
+    <details>
+      <summary>🥬 Vegetables</summary>
+      <div class="item-group">
+        <label><input type="checkbox" value="Spinach"> Spinach</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Cabbage"> Cabbage</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Kales"> Kales (Sukuma)</label>
+        <input type="number" min="1" placeholder="Qty">
+        
+        <label><input type="checkbox" value="Tomatoes"> Tomatoes</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Onions"> onions</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="carrot"> carrot</label>
+        <input type="number" min="1" placeholder="Qty">
+        
+        <label><input type="checkbox" value="hoho"> hoho(mixed papers)</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="broccoli"> broccoli</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Cauliflower"> cauliflower</label>
+        <input type="number" min="1" placeholder="Qty">
+        
+        <label><input type="checkbox" value="okra"> okra</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="beetroot"> beetroot</label>
+        <input type="number" min="1" placeholder="Qty">
+
+      </div>
+    </details>
+
+    <details>
+      <summary>🌿 Herbs</summary>
+      <div class="item-group">
+        <label><input type="checkbox" value="Dhania"> Dhania</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Mint"> Mint</label>
+        <input type="number" min="1" placeholder="Qty">
+        
+        <label><input type="checkbox" value="Garlic"> garlic</label>
+        <input type="number" min="1" placeholder="Qty">
+        <label><input type="checkbox" value="Ginger"> Ginger</label>
+        <input type="number" min="1" placeholder="Qty">
+      </div>
+    </details>
+
+    <div class="item-group">
+        <label><input type="radio" name="basket" value="Small Basket - Ksh 250"> Family Basket - Ksh 1200</label>
+        <label><input type="radio" name="basket" value="Medium Basket - Ksh 500"> Health and wellness Basket - Ksh 1500</label>
+        <label><input type="radio" name="basket" value="Family Basket - Ksh 1000"> Fruit lovers Basket - Ksh 1000</label>
+      </div>
+
+    <button type="submit">Send Order via WhatsApp</button>
+  </form>
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+  
+      const name = document.getElementById("fullName").value;
+      const phone = document.getElementById("phoneNumber").value;
+      const location = document.getElementById("location").value;
+      const checkboxes = document.querySelectorAll("input[type='checkbox']");
+      const quantities = document.querySelectorAll("input[type='number']");
+      let order = "";
+  
+      // ✅ Add basket deal if selected
+      const selectedBasket = document.querySelector("input[name='basket']:checked");
+      if (selectedBasket) {
+        order += `🧺 ${selectedBasket.value}\n`;
+      }
+  
+      // ✅ Add regular items
+      checkboxes.forEach((checkbox, index) => {
+        if (checkbox.checked) {
+          const qty = quantities[index].value || 1;
+          order += `• ${checkbox.value} - ${qty}\n`;
+        }
+      });
+  
+      if (order === "") {
+        alert("Please select at least one item or a basket deal.");
+        return;
+      }
+  
+      const message = `Hello, I’d like to order:\n\n${order}\n📍 Location: ${location}\n👤 Name: ${name}\n📞 Phone: ${phone}`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/2547XXXXXXXXX?text=${encodedMessage}`; // Replace with your WhatsApp number
+      window.open(whatsappURL, "_blank");
+    });
+  </script>
+  
+</body>
+</html>
